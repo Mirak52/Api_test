@@ -1,0 +1,26 @@
+﻿<Window x:Class="Api_test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Api_test"
+        mc:Ignorable="d"
+        
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid>
+        <ListView Margin="0,20,1000,0" Name="Dwarf">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="id"  DisplayMemberBinding="{Binding id}" />
+                    <GridViewColumn Header="name"  DisplayMemberBinding="{Binding name}" />
+                    <GridViewColumn Header="height"  DisplayMemberBinding="{Binding height}" />
+                    <GridViewColumn Header="weight"  DisplayMemberBinding="{Binding weight}" />
+                    <GridViewColumn Header="beardLenght"  DisplayMemberBinding="{Binding beardLength}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="Update" HorizontalAlignment="Left" Margin="1314,342,0,0" VerticalAlignment="Top" Width="75">
+            <Button Content="Button" Width="75" Click="Button_Click"/>
+        </Button>
+    </Grid>
+</Window>
