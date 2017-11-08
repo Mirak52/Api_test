@@ -54,5 +54,23 @@ namespace Api_test
             }
             return queryResult;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var client = new RestClient("https://student.sps-prosek.cz/~bastlma14/Api/");
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("name", getName.Text);
+            var res = client.Execute<List<Midget>>(request);
+            Dwarf.ItemsSource = res.Data;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var client = new RestClient("https://student.sps-prosek.cz/~bastlma14/Api/"+ deleteById.Text);
+            var request = new RestRequest(Method.DELETE);
+
+            var res = client.Execute(request);
+            Dwarf.ItemsSource = res.Data;
+        }
     }
 }

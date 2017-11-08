@@ -19,6 +19,24 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <StackPanel Margin="917,20,718,683">
+            <Label Content="Zadej jméno"/>
+                <TextBox x:Name="getName" Height="23" TextWrapping="Wrap" Text="" />
+            <Button Content="Search" Click="Button_Click_1"/>
+            <Label Height="10"></Label>
+            <Button Content="default"/>
+
+
+        </StackPanel>
+        <StackPanel Margin="1222,20,414,683">
+            <Label Content="Zadej ID pro smazání"/>
+            <TextBox x:Name="deleteById" Height="23" TextWrapping="Wrap" Text="" />
+            <Button Content="Delete" Click="Button_Click_2"/>
+            <Label Height="10"></Label>
+            <Button Content="default"/>
+
+
+        </StackPanel>
         <Button x:Name="Update" HorizontalAlignment="Left" Margin="1314,342,0,0" VerticalAlignment="Top" Width="75">
             <Button Content="Button" Width="75" Click="Button_Click"/>
         </Button>
