@@ -24,21 +24,25 @@
                 <TextBox x:Name="getName" Height="23" TextWrapping="Wrap" Text="" />
             <Button Content="Search" Click="Button_Click_1"/>
             <Label Height="10"></Label>
-            <Button Content="default"/>
+            <Button Content="default" Click="Button_Click_3"/>
 
 
         </StackPanel>
         <StackPanel Margin="1222,20,414,683">
-            <Label Content="Zadej ID pro smazání"/>
-            <TextBox x:Name="deleteById" Height="23" TextWrapping="Wrap" Text="" />
-            <Button Content="Delete" Click="Button_Click_2"/>
-            <Label Height="10"></Label>
-            <Button Content="default"/>
+            <Label Content="Zadej jméno trpaslíka"/>
+            <TextBox x:Name="Name" Height="23" TextWrapping="Wrap" Text="" />
+            <Label Content="Zadej jeho výšku (cm)"/>
+            <TextBox x:Name="Height" Height="23" TextWrapping="Wrap" Text="" />
+            <Label Content="Zadej jeho hmotnost (kg)"/>
+            <TextBox x:Name="Weight" Height="23" TextWrapping="Wrap" Text="" />
+            <Label Content="Zadej jeho délku vousů (cm)"/>
+            <TextBox x:Name="BeardLength" Height="23" TextWrapping="Wrap" Text="" />
+            <Button Content="save" Click="Button_Click_2" />
+            <Label x:Name="Error_label" ></Label>
+            
 
 
         </StackPanel>
-        <Button x:Name="Update" HorizontalAlignment="Left" Margin="1314,342,0,0" VerticalAlignment="Top" Width="75">
-            <Button Content="Button" Width="75" Click="Button_Click"/>
-        </Button>
+        
     </Grid>
 </Window>

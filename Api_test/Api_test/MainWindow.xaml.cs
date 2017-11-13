@@ -61,16 +61,46 @@ namespace Api_test
             var request = new RestRequest(Method.GET);
             request.AddParameter("name", getName.Text);
             var res = client.Execute<List<Midget>>(request);
+            if (res.ResponseStatus == ResponseStatus.Error)
+            {
+                throw new System.ArgumentException("Chyba na serveru, zkontroluj URL");
+                //Error.Content= "Chyba na serveru, zkontroluj URL");
+            }
             Dwarf.ItemsSource = res.Data;
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Dwarf.ItemsSource = GetMidgets();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var client = new RestClient("https://student.sps-prosek.cz/~bastlma14/Api/"+ deleteById.Text);
-            var request = new RestRequest(Method.DELETE);
-
-            var res = client.Execute(request);
-            Dwarf.ItemsSource = res.Data;
+            var client = new RestClient("https://student.sps-prosek.cz/~bastlma14/Api/");
+            var request = new RestRequest(Method.POST);
+            int n;
+            bool height = int.TryParse(Height.Text, out n);
+            bool weight = int.TryParse(Weight.Text, out n);
+            bool beardLength = int.TryParse(BeardLength.Text, out n);
+            if (height && weight && beardLength)
+                {
+                request.AddParameter("name", Name.Text);
+                request.AddParameter("height", Height.Text);
+                request.AddParameter("weight", Weight.Text);
+                request.AddParameter("beardLength", BeardLength.Text);
+                var res = client.Execute(request);
+                    if (res.ResponseStatus == ResponseStatus.Error)
+                    {
+                        throw new System.ArgumentException("Chyba na serveru, zkontroluj URL");
+                        //Error.Content= "Chyba na serveru, zkontroluj URL");
+                    }
+                Error_label.Content = "";
+                Dwarf.ItemsSource = GetMidgets();
+                }
+           else
+           {
+               Error_label.Content = "Některý z udajů obsahuje nepovolené znaky(jiné než číslo)";
+           }
         }
     }
 }
